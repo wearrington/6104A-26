@@ -1,8 +1,11 @@
+#include "main.h"
+
 namespace drive {
-    pros::MotorGroup drivetrain_motors;
-    pros::MotorGroup left_motors;
-    pros::MotorGroup right_motors;
-    pros::rotation horizontal_tracking_wheel;
-    pros::rotation vertical_tracking_wheel;
-    pros::imu imu;
+    extern pros::MotorGroup drivetrain_motors;
+    extern pros::MotorGroup left_motors;
+    extern pros::MotorGroup right_motors;
+    extern pros::Rotation horizontal_tracking_wheel;
+    extern pros::Rotation vertical_tracking_wheel;
+    extern pros::IMU imu;
+    void control();
 }
