@@ -1,6 +1,19 @@
 #include "main.h"
 #include "subsystems/drive.hpp"
 
+// Chassis constructor
+ez::Drive chassis(
+    // These are your drive motors, the first motor is used for sensing!
+    {-12, -3, -2},     // Left Chassis Ports (negative port will reverse it!)
+    {20, 9, 10},  // Right Chassis Ports (negative port will reverse it!)
+
+    4,       // IMU Port
+    4.25,   // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
+    450);  // Wheel RPM = cartridge * (motor gear / wheel gear)
+
+ez::tracking_wheel horizontal_tracking_wheel(11, 2.125, 0)
+ez::tracking_wheel vertical_tracking_wheel(-8, 2.125, 0.75)
+
 /**
  * A callback function for LLEMU's center button.
  *
@@ -28,6 +41,8 @@ void initialize() {
 	pros::lcd::set_text(1, "Hello PROS User!");
 
 	pros::lcd::register_btn1_cb(on_center_button);
+	chassis.odom_tracker_front_set(&vertical_tracking_wheel);
+	chassis.odom_tracker_right_set(&horizontal_tracking_wheel)
 }
 
 /**
@@ -76,6 +91,7 @@ void autonomous() {}
  */
 void opcontrol() {
 	pros::Task drive(drive::control);
+	pros::Task intake(intake::intake_control)
 	while (true) {
 
 	}
