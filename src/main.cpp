@@ -1,6 +1,7 @@
 #include "main.h"
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
+#include <stdio.h>
 
 // Chassis constructor
 ez::Drive chassis(
@@ -44,6 +45,11 @@ void initialize() {
 	pros::lcd::register_btn1_cb(on_center_button);
 	chassis.odom_tracker_front_set(&vertical_tracking_wheel);
 	chassis.odom_tracker_right_set(&horizontal_tracking_wheel);
+	//chassis.opcontrol_curve_buttons_toggle(false);  // Disable modifying curves through the controller
+    //chassis.opcontrol_curve_default_set(2.1);
+	chassis.opcontrol_drive_activebrake_set(2.0);
+	chassis.initialize();
+	ez::as::initialize();
 }
 
 /**
@@ -75,7 +81,9 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+	printf("Test");
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -90,11 +98,14 @@ void autonomous() {}
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
+
 void opcontrol() {
 	pros::Task drive(drive::control);
 	pros::Task intake(intake::control);
 	while (true) {
-
+		printf("horizontal: %f /n", horizontal_tracking_wheel);
+		printf("vertical: %f /n", vertical_tracking_wheel);
+		pros::delay(50);
 	}
 
 }
