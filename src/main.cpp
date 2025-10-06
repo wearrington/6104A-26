@@ -82,7 +82,7 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	printf("Test");
+	printf("This is auton, TEST");
 }
 
 /**
@@ -103,8 +103,8 @@ void opcontrol() {
 	pros::Task drive(drive::control);
 	pros::Task intake(intake::control);
 	while (true) {
-		printf("horizontal: %f /n", horizontal_tracking_wheel);
-		printf("vertical: %f /n", vertical_tracking_wheel);
+		//printf("horizontal: %f /n", horizontal_tracking_wheel);
+		//printf("vertical: %f /n", vertical_tracking_wheel);
 		pros::delay(50);
 	}
 
