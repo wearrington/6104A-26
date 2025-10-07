@@ -13,31 +13,31 @@ namespace intake {
         BLUE = 2
     } color_type_e; 
     color_type_e alliance_color = RED;
-    color_type_e get_color() {
-        while (true) {
-            if (optical_sensor.get_hue() < 10 or optical_sensor.get_hue() > 355) {
-                return RED;
-            }
-
-            else if (221 < optical_sensor.get_hue() < 240) {
-                return BLUE;
-            }
-            
-            else {
-                return SKILLS;
-            }
-        }
-    }
 
     void control() {
         while (true) {
             if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
                 lower_intake.move_voltage(12000);
-                if (get_color() != alliance_color and alliance_color != SKILLS) {
-                    upper_intake.move_voltage(-12000);
-                }
-                else {
-                    upper_intake.move_voltage(12000);
+                switch (alliance_color) {
+                    case RED:
+                        if (221 < optical_sensor.get_hue() < 240) {
+                            upper_intake.move_voltage(-12000);
+                        }
+                        else {
+                            upper_intake.move_voltage(12000);
+                        }
+                        break;
+                    case BLUE:
+                        if (optical_sensor.get_hue() < 10 or optical_sensor.get_hue() > 355) {
+                            upper_intake.move_voltage(-12000);
+                        }
+                        else {
+                            upper_intake.move_voltage(12000);
+                        }
+                        break;
+                    case SKILLS:
+                        upper_intake.move_voltage(12000);
+                        break;
                 }
             }
 
@@ -48,10 +48,6 @@ namespace intake {
             else {
                 intake.move_voltage(0);
             }
-
-            //printf("%d\n", get_color());
-            pros::delay(20);
         }
     }
 }
-
