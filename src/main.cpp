@@ -7,7 +7,7 @@
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
     {-12, -3, -2},     // Left Chassis Ports (negative port will reverse it!)
-    {20, 9, 10},  // Right Chassis Ports (negative port will reverse it!)
+    {20, 9, 19},  // Right Chassis Ports (negative port will reverse it!)
 
     4,       // IMU Port
     4.25,   // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
@@ -47,7 +47,7 @@ void initialize() {
 	chassis.odom_tracker_right_set(&horizontal_tracking_wheel);
 	//chassis.opcontrol_curve_buttons_toggle(false);  // Disable modifying curves through the controller
     //chassis.opcontrol_curve_default_set(2.1);
-	chassis.opcontrol_drive_activebrake_set(2.0);
+	chassis.opcontrol_drive_activebrake_set(0.5);
 	chassis.initialize();
 	ez::as::initialize();
 }
@@ -107,5 +107,4 @@ void opcontrol() {
 		//printf("vertical: %f /n", vertical_tracking_wheel);
 		pros::delay(50);
 	}
-
 }

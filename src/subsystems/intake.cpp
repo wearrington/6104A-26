@@ -33,30 +33,25 @@ namespace intake {
         while (true) {
             if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
                 lower_intake.move_voltage(12000);
+                if (get_color() != alliance_color and alliance_color != SKILLS) {
+                    upper_intake.move_voltage(-12000);
+                }
+                else {
+                    upper_intake.move_voltage(12000);
+                }
             }
 
             else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-                lower_intake.move_voltage(-12000);
+                intake.move_voltage(-12000);
             }
 
             else {
-                lower_intake.move_voltage(0);
+                intake.move_voltage(0);
             }
 
-            if (get_color() == RED) {
-                upper_intake.move_voltage(12000);
-            }
-
-            else if (get_color() != SKILLS) {
-                upper_intake.move_voltage(-12000);
-            }
-
-            else {
-                upper_intake.move_voltage(0);
-            }
-
-            printf("%d\n", get_color());
-            pros::delay(50);
+            //printf("%d\n", get_color());
+            pros::delay(20);
         }
     }
 }
+
