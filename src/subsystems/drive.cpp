@@ -1,5 +1,4 @@
 #include "main.h"
-
 namespace drive {
     pros::MotorGroup drivetrain_motors({12, 3, 2, -20, -9, -10});
     pros::MotorGroup left_motors({12, 3, 2}); //in order from back to front
@@ -11,9 +10,7 @@ namespace drive {
 
 
     void control() {
-        while (true) {
             chassis.opcontrol_arcade_standard(ez::SPLIT); // Standard split arcade
             pros::delay(ez::util::DELAY_TIME);
         }
     }
-}

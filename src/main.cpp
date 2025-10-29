@@ -2,7 +2,6 @@
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
 #include <stdio.h>
-
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
@@ -15,7 +14,6 @@ ez::Drive chassis(
 
 ez::tracking_wheel horizontal_tracking_wheel(11, 2.125, 0);
 ez::tracking_wheel vertical_tracking_wheel(-8, 2.125, 0.75);
-
 /**
  * A callback function for LLEMU's center button.
  *
@@ -40,8 +38,8 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
-
+	pros::Controller master(pros::E_CONTROLLER_MASTER);
+	pros::ADIDigitalOut pneumatics ('A');
 	pros::lcd::register_btn1_cb(on_center_button);
 	chassis.odom_tracker_front_set(&vertical_tracking_wheel);
 	chassis.odom_tracker_right_set(&horizontal_tracking_wheel);
