@@ -7,7 +7,6 @@ namespace intake {
     pros::Motor lower_intake(10);
     pros::Motor upper_intake(-13);
     pros::Optical optical_sensor(21);
-    pros::ADIDigitalOut pneumatics ('A', false);
     typedef enum alliance_colors {
         SKILLS = 0, 
         RED = 1,
@@ -41,16 +40,9 @@ namespace intake {
                         break;
                 }
             }
-
             else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
                 intake.move_voltage(-12000);
             }
-            else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)) {
-                pneumatics.set_value(true);
-                pros::delay(10);}
-            else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)) {
-                pneumatics.set_value(false);
-                pros::delay(10);}
             else {
                 intake.move_voltage(0);
             }
