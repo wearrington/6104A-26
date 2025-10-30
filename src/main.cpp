@@ -1,6 +1,7 @@
 #include "main.h"
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
+#include "subsystems/pneumatics.hpp"
 #include <stdio.h>
 // Chassis constructor
 ez::Drive chassis(
@@ -100,6 +101,7 @@ void autonomous() {
 void opcontrol() {
 	pros::Task drive(drive::control);
 	pros::Task intake(intake::control);
+	pros::Task pneumatics(pneumatics::control);
 	while (true) {
 		//printf("horizontal: %f /n", horizontal_tracking_wheel);
 		//printf("vertical: %f /n", vertical_tracking_wheel);

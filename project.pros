@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "ez",
+    "project_name": "6014A Test",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -280,7 +280,8 @@
       }
     },
     "upload_options": {
-      "slot": 1
+      "slot": 1,
+      "description": "For programming NOT COMP"
     },
     "use_early_access": false
   }
