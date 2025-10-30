@@ -10,7 +10,10 @@ namespace drive {
 
 
     void control() {
+        while (true) {
             chassis.opcontrol_arcade_standard(ez::SPLIT); // Standard split arcade
-            pros::delay(ez::util::DELAY_TIME);
+            //printf("drive running\n");
+            pros::delay(20); // ez::util::DELAY_TIME
         }
     }
+}

@@ -12,7 +12,7 @@ namespace intake {
         RED = 1,
         BLUE = 2
     } color_type_e; 
-    color_type_e alliance_color = RED;
+    color_type_e alliance_color = SKILLS;
 
     void control() {
         while (true) {
@@ -46,6 +46,7 @@ namespace intake {
             else {
                 intake.move_voltage(0);
             }
+            pros::delay(20);
         }
     }
 }
