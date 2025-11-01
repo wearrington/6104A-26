@@ -80,7 +80,9 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	printf("This is auton, TEST");
+	drive::drivetrain_motors.move_voltage(12000);
+	pros::delay(800);
+	drive::drivetrain_motors.move_voltage(12000);
 }
 
 /**
