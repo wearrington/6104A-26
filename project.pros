@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "6014A Test",
+    "project_name": "6014A Comp",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -281,7 +281,8 @@
     },
     "upload_options": {
       "slot": 1,
-      "description": "For programming NOT COMP"
+      "description": "Stable comp code",
+      "icon": "pros"
     },
     "use_early_access": false
   }
