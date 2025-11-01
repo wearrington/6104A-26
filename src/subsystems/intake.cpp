@@ -18,26 +18,11 @@ namespace intake {
         while (true) {
              if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)) {
                 lower_intake.move_voltage(12000);
-                switch (alliance_color) {
-                    case RED:
-                        if (221 < optical_sensor.get_hue() < 240) {
-                            upper_intake.move_voltage(-12000);
-                        }
-                        else {
-                            upper_intake.move_voltage(12000);
-                        }
-                        break;
-                    case BLUE:
-                        if (optical_sensor.get_hue() < 10 or optical_sensor.get_hue() > 355) {
-                            upper_intake.move_voltage(-12000);
-                        }
-                        else {
-                            upper_intake.move_voltage(12000);
-                        }
-                        break;
-                    case SKILLS:
-                        upper_intake.move_voltage(12000);
-                        break;
+                if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+                    upper_intake.move_voltage(-12000);
+                }
+                else {
+                    upper_intake.move_voltage(12000);
                 }
             }
             else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {

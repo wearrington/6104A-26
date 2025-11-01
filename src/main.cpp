@@ -14,6 +14,7 @@ ez::Drive chassis(
 
 ez::tracking_wheel horizontal_tracking_wheel(11, 2.125, 0);
 ez::tracking_wheel vertical_tracking_wheel(-8, 2.125, 0.75);
+
 /**
  * A callback function for LLEMU's center button.
  *
@@ -39,15 +40,15 @@ void on_center_button() {
 void initialize() {
 	pros::lcd::initialize();
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
-	pros::ADIDigitalOut pneumatics ('A');
+	pros::adi::DigitalOut pneumatics_output ('A', false);
 	pros::lcd::register_btn1_cb(on_center_button);
 	chassis.odom_tracker_front_set(&vertical_tracking_wheel);
 	chassis.odom_tracker_right_set(&horizontal_tracking_wheel);
 	//chassis.opcontrol_curve_buttons_toggle(false);  // Disable modifying curves through the controller
-    //chassis.opcontrol_curve_default_set(2.1);
+    chassis.opcontrol_curve_default_set(2.1);
 	chassis.opcontrol_drive_activebrake_set(0.5);
 	chassis.initialize();
-	ez::as::initialize();
+	//ez::as::initialize();
 }
 
 /**
@@ -80,9 +81,9 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	drive::drivetrain_motors.move_voltage(12000);
-	pros::delay(800);
-	drive::drivetrain_motors.move_voltage(12000);
+	drive::drivetrain_motors.move_voltage(-12000);
+	pros::delay(300);
+	drive::drivetrain_motors.move_voltage(0);
 }
 
 /**
@@ -103,9 +104,4 @@ void opcontrol() {
 	pros::Task drive(drive::control);
 	pros::Task intake(intake::control);
 	pros::Task pneumatics(pneumatics::control);
-	while (true) {
-		//printf("horizontal: %f /n", horizontal_tracking_wheel);
-		//printf("vertical: %f /n", vertical_tracking_wheel);
-		pros::delay(50);
-	}
 }
