@@ -1,12 +1,7 @@
 {
-<<<<<<< Updated upstream
-    "py/object": "pros.conductor.project.Project",
-    "py/state": {
-        "project_name": "ez",
-=======
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "6014A Test",
+    "project_name": "6014A Test 2",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -30,7 +25,6 @@
           "include\\EZ-Template\\drive\\drive.hpp",
           "include\\EZ-Template\\auton_selector.hpp"
         ],
->>>>>>> Stashed changes
         "target": "v5",
         "templates": {
             "EZ-Template": {
@@ -555,8 +549,12 @@
     },
     "upload_options": {
       "slot": 2,
+<<<<<<< Updated upstream
       "description": "NOT FOR COMP",
       "icon": "pros"
+=======
+      "description": "For programming NOT COMP"
+>>>>>>> Stashed changes
     },
     "use_early_access": false
   }
