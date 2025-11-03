@@ -41,7 +41,6 @@ void on_center_button() {
 void initialize() {
 	pros::lcd::initialize();
 	pros::lcd::set_text(1, "Hello PROS User!");
-
 	//pros::Controller master(pros::E_CONTROLLER_MASTER);
 	//pros::adi::DigitalOut pneumatics_output ('A', false);
 	pros::lcd::register_btn1_cb(on_center_button);
@@ -52,6 +51,7 @@ void initialize() {
 	chassis.opcontrol_drive_activebrake_set(0.5);
 	chassis.initialize();
 	ez::as::initialize();
+	chassis.pid_tuner_toggle();
 }
 
 /**

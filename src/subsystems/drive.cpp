@@ -19,6 +19,9 @@ namespace drive {
                 driveLock = !driveLock;
             }
             pros::delay(ez::util::DELAY_TIME);
+            if (master.get_digital(DIGITAL_B) && master.get_digital(DIGITAL_DOWN)) {
+                autonomous();
+            }
         }
     }
 }
