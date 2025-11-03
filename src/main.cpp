@@ -42,6 +42,8 @@ void initialize() {
 	pros::lcd::initialize();
 	pros::lcd::set_text(1, "Hello PROS User!");
 
+	//pros::Controller master(pros::E_CONTROLLER_MASTER);
+	//pros::adi::DigitalOut pneumatics_output ('A', false);
 	pros::lcd::register_btn1_cb(on_center_button);
 	chassis.odom_tracker_front_set(&vertical_tracking_wheel);
 	chassis.odom_tracker_right_set(&horizontal_tracking_wheel);
@@ -82,7 +84,12 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
-	printf("This is auton, TEST");
+	drive::drivetrain.move_voltage(12000);
+	intake::lower_intake.move_voltage(12000);
+	pros::delay(300);
+	drive::drivetrain.move_voltage(0);
+	pros::delay(700);
+	intake::lower_intake.move_voltage(0);
 }
 
 /**
