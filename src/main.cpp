@@ -41,6 +41,7 @@ void initialize() {
 	pros::lcd::initialize();
 	pros::Controller master(pros::E_CONTROLLER_MASTER);
 	pros::adi::DigitalOut pneumatics_output ('A', false);
+	pros::adi::DigitalOut hood_lift ('H', false);
 	pros::lcd::register_btn1_cb(on_center_button);
 	chassis.odom_tracker_front_set(&vertical_tracking_wheel);
 	chassis.odom_tracker_right_set(&horizontal_tracking_wheel);
