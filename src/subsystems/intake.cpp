@@ -12,7 +12,7 @@ namespace intake {
         RED = 1,
         BLUE = 2
     } color_type_e; 
-    color_type_e alliance_color = RED; //Set's alliance color to red
+    color_type_e alliance_color = RED; //Sets alliance color to red
 
     void control() {
         while (true) {
@@ -49,7 +49,7 @@ namespace intake {
                 intake.move_voltage(0);
             }
             pros::delay(75); //Prevents processor from getting starved
-            printf("\n%f", optical_sensor.get_hue());
+            //printf("\n%f", optical_sensor.get_hue());
         }
     }
 }

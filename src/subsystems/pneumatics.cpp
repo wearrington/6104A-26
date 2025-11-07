@@ -1,0 +1,14 @@
+#include "main.h"
+
+namespace pneumatics {
+    pros::adi::DigitalIn pneumatics_input ('A');
+    pros::adi::DigitalOut pneumatics_output ('A', false);
+    void control() {
+        while (true) {
+            if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) {
+                pneumatics_output.set_value(!pneumatics_input.get_value());
+            }
+            pros::delay(100);
+        }
+    }
+}
