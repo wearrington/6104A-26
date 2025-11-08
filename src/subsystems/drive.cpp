@@ -8,21 +8,12 @@ namespace drive {
     pros::Rotation horizontal_tracking_Wheel({11});
     pros::IMU imu({4});
     pros::Controller master(pros::E_CONTROLLER_MASTER);
-    bool driveLock = true;
 
     void control() {
         chassis.drive_brake_set(MOTOR_BRAKE_COAST);
         while (true) {
-            if (!driveLock) {
-                chassis.opcontrol_arcade_standard(ez::SPLIT); // Standard split arcade
-            }
-            if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT) && master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
-                driveLock = !driveLock;
-            }
-            if (master.get_digital(DIGITAL_B) && master.get_digital(DIGITAL_DOWN)) {
-                autonomous();
-            }
-            pros::delay(50);
+            chassis.opcontrol_arcade_standard(ez::SPLIT); // Standard split arcade
+            pros::delay(20);
         }
     }
 }

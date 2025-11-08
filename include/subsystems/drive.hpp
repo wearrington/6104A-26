@@ -7,6 +7,5 @@ namespace drive {
     extern pros::Rotation horizontal_tracking_wheel;
     extern pros::Rotation vertical_tracking_wheel;
     extern pros::IMU imu;
-    extern bool driveLock;
     void control();
 }
