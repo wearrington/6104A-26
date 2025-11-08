@@ -18,13 +18,9 @@ ez::tracking_wheel horizontal_tracking_wheel(11, 2.125, 0);
 ez::tracking_wheel vertical_tracking_wheel(-8, 2.125, 0.75);
 
 void initialize() {
-	default_constants();
-	chassis.odom_tracker_front_set(&vertical_tracking_wheel);
-	chassis.odom_tracker_right_set(&horizontal_tracking_wheel);
 	chassis.opcontrol_curve_buttons_toggle(false);
-  chassis.opcontrol_curve_default_set(2.1);
+    chassis.opcontrol_curve_default_set(2.1);
 	chassis.initialize();
-	pros::delay(3000);
 }
 
 void disabled() {}
