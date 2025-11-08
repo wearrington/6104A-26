@@ -28,11 +28,10 @@ namespace intake {
             else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) { //outtake/score on low goal
                 lower_intake.move_voltage(-12000);
             }
-
             else {
                 intake.move_voltage(0);
             }
-            pros::delay(75);
+            pros::delay(20);
         }
     }
 }
