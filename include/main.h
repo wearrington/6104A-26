@@ -36,6 +36,7 @@
 
 #include "api.h"
 #include "EZ-Template/api.hpp"
+#include "autons.hpp"
 
 /**
  * You should add more #includes here

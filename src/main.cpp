@@ -17,7 +17,7 @@ ez::tracking_wheel vertical_tracking_wheel(-8, 2.125, 0.75);
 
 void initialize() {
 	chassis.opcontrol_curve_buttons_toggle(false);
-    chassis.opcontrol_curve_default_set(2.1);
+  chassis.opcontrol_curve_default_set(2.1);
 	chassis.initialize();
 }
 
@@ -26,9 +26,7 @@ void disabled() {}
 void competition_initialize() {}
 
 void autonomous() {
-  drive::drive.move_voltage(12000);
-  pros::delay(300);
-  drive::drive.move_voltage(0);
+  drive_example();
 }
 
 void opcontrol() {
