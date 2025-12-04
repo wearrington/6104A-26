@@ -2,7 +2,7 @@
 
 namespace angel_wing {
     pros::adi::DigitalIn angel_wing_input ('B');
-    pros::adi::DigitalOut angel_wing_output ("B");
+    pros::adi::DigitalOut angel_wing_output ('B');
 
     void control() {
         while (true) {
