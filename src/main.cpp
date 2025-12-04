@@ -2,7 +2,7 @@
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
 #include "subsystems/match_loader.hpp"
-#include "subsystems/angle_wing.hpp"
+#include "subsystems/angel_wing.hpp"
 #include <stdio.h>
 // Chassis constructor
 ez::Drive chassis(
@@ -36,5 +36,5 @@ void opcontrol() {
 	pros::Task drive(drive::control);
 	pros::Task intake(intake::control);
 	pros::Task match_loader(match_loader::control);
-  pros::Task angle_wing(angle_wing::control);
+  pros::Task angel_wing(angel_wing::control);
 }
