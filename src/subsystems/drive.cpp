@@ -14,7 +14,7 @@ namespace drive {
         int rightX = controller.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
 
         // move the robot
-        chassis.arcade(leftY, rightX);
+        //chassis.arcade(leftY, rightX);
 
         // delay to save resources
         pros::delay(25);
