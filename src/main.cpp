@@ -1,5 +1,15 @@
 #include "main.h"
 #include "lemlib/api.hpp" // IWYU pragma: keep
+#include "subsystems/drive.hpp"
+
+// drivetrain settings
+lemlib::Drivetrain drivetrain(&drive::left_motors, // left motor group
+                              &drive::right_motors, // right motor group
+                              10, // 10 inch track width
+                              lemlib::Omniwheel::NEW_4, // using new 4" omnis
+                              360, // drivetrain rpm is 360
+                              2 // horizontal drift is 2 (for now)
+);
 
 /**
  * A callback function for LLEMU's center button.
