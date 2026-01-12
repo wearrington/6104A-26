@@ -27,58 +27,58 @@ lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
 );
 
 void full_skills() {
-    chassis.setPose(46.5, 11);
-    chassis.moveToPoint(46.5, 46.6);
-    chassis.turnToHeading(90);
+    chassis.setPose(46.5, 11, 0);
+    chassis.moveToPoint(46.5, 46.6, 5000);
+    chassis.turnToHeading(90, 5000);
     //drop match loader
-    chassis.moveToPoint(58.3, 46.6);
+    chassis.moveToPoint(58.3, 46.6, 5000);
     //run lower intake
-    chassis.moveToPoint(53.5, 46.6);
+    chassis.moveToPoint(53.5, 46.6, 5000);
     //retract match loader
-    chassis.turnToHeading(0);
-    chassis.moveToPoint(53.5, 57.75);
-    chassis.turnToHeading(270);
-    chassis.moveToPoint(-43.5, 57.75);
-    chassis.turnToHeading(180);
-    chassis.moveToPoint(-43.5, 46.6);
-    chassis.turnToHeading(270);
-    chassis.moveToPoint(-30, 46.6);
+    chassis.turnToHeading(0, 5000);
+    chassis.moveToPoint(53.5, 57.75, 5000);
+    chassis.turnToHeading(270, 5000);
+    chassis.moveToPoint(-43.5, 57.75, 5000);
+    chassis.turnToHeading(180, 5000);
+    chassis.moveToPoint(-43.5, 46.6, 5000);
+    chassis.turnToHeading(270, 5000);
+    chassis.moveToPoint(-30, 46.6, 5000);
     //run full intake
     //drop match loader
-    chassis.moveToPoint(-59, 46.6);
+    chassis.moveToPoint(-59, 46.6, 5000);
     //run lower intake
-    chassis.moveToPoint(-30, 46.6);
+    chassis.moveToPoint(-30, 46.6, 5000);
     //run full intake
     //retract match loader
-    chassis.moveToPoint(-39, 46.6);
-    chassis.turnToHeading(180);
-    chassis.moveToPoint(-39, -47);
-    chassis.turnToHeading(90);
-    chassis.moveToPoint(-30, -47);
+    chassis.moveToPoint(-39, 46.6, 5000);
+    chassis.turnToHeading(180, 5000);
+    chassis.moveToPoint(-39, -47, 5000);
+    chassis.turnToHeading(90, 5000);
+    chassis.moveToPoint(-30, -47, 5000);
     //run full intake
     //drop match loader
-    chassis.moveToPoint(-59, -47);
+    chassis.moveToPoint(-59, -47, 5000);
     //run lower intake
-    chassis.moveToPoint(-53, -47);
+    chassis.moveToPoint(-53, -47, 5000);
     //retract match loader
-    chassis.turnToHeading(180);
-    chassis.moveToPoint(-53, -57.5);
-    chassis.turnToHeading(90);
-    chassis.moveToPoint(44, -57.5);
-    chassis.turnToHeading(0);
-    chassis.moveToPoint(44, -47.4);
-    chassis.turnToHeading(270);
-    chassis.moveToPoint(30.5, -47.4);
+    chassis.turnToHeading(180, 5000);
+    chassis.moveToPoint(-53, -57.5, 5000);
+    chassis.turnToHeading(90, 5000);
+    chassis.moveToPoint(44, -57.5, 5000);
+    chassis.turnToHeading(0, 5000);
+    chassis.moveToPoint(44, -47.4, 5000);
+    chassis.turnToHeading(270, 5000);
+    chassis.moveToPoint(30.5, -47.4, 5000);
     //run full intake
     //drop matchloader
-    chassis.moveToPoint(58.3, -47.4);
+    chassis.moveToPoint(58.3, -47.4, 5000);
     //run lower intake
-    chassis.moveToPoint(30.5, -47.3);
+    chassis.moveToPoint(30.5, -47.3, 5000);
     //run full intake
     //retract matchloader
-    chassis.moveToPoint(37.8, -47.4);
-    chassis.turnToHeading(0);
-    chassis.moveToPoint(37.8, 0);
-    chassis.turnToHeading(90);
-    chassis.moveToPoint(100, 0); //ghost point to maintain speed, real point is (61.5, 0)
+    chassis.moveToPoint(37.8, -47.4, 5000);
+    chassis.turnToHeading(0, 5000);
+    chassis.moveToPoint(37.8, 0, 5000);
+    chassis.turnToHeading(90, 5000);
+    chassis.moveToPoint(100, 0, 5000); //ghost point to maintain speed, real point is (61.5, 0)
 }
