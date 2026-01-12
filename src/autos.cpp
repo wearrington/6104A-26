@@ -27,6 +27,7 @@ lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
 );
 
 void full_skills() {
+    //drive to front right match loader and matchload
     chassis.setPose(46.5, 11, 0);
     chassis.moveToPoint(46.5, 46.6, 5000);
     chassis.turnToHeading(90, 5000);
@@ -35,6 +36,8 @@ void full_skills() {
     //run lower intake
     chassis.moveToPoint(53.5, 46.6, 5000);
     //retract match loader
+
+    //turn towards wall and run along side channel to back right corner
     chassis.turnToHeading(0, 5000);
     chassis.moveToPoint(53.5, 57.75, 5000);
     chassis.turnToHeading(270, 5000);
@@ -42,6 +45,8 @@ void full_skills() {
     chassis.turnToHeading(180, 5000);
     chassis.moveToPoint(-43.5, 46.6, 5000);
     chassis.turnToHeading(270, 5000);
+
+    //score, matchload, and then score again
     chassis.moveToPoint(-30, 46.6, 5000);
     //run full intake
     //drop match loader
@@ -51,9 +56,13 @@ void full_skills() {
     //run full intake
     //retract match loader
     chassis.moveToPoint(-39, 46.6, 5000);
+
+    //turn left, head across field, and then turn into match loader
     chassis.turnToHeading(180, 5000);
     chassis.moveToPoint(-39, -47, 5000);
     chassis.turnToHeading(90, 5000);
+
+    //score, then match load
     chassis.moveToPoint(-30, -47, 5000);
     //run full intake
     //drop match loader
@@ -61,6 +70,8 @@ void full_skills() {
     //run lower intake
     chassis.moveToPoint(-53, -47, 5000);
     //retract match loader
+
+    //head along left side channel to front left match loader
     chassis.turnToHeading(180, 5000);
     chassis.moveToPoint(-53, -57.5, 5000);
     chassis.turnToHeading(90, 5000);
@@ -68,6 +79,8 @@ void full_skills() {
     chassis.turnToHeading(0, 5000);
     chassis.moveToPoint(44, -47.4, 5000);
     chassis.turnToHeading(270, 5000);
+
+    //score, matchload, and then score again
     chassis.moveToPoint(30.5, -47.4, 5000);
     //run full intake
     //drop matchloader
@@ -76,6 +89,8 @@ void full_skills() {
     chassis.moveToPoint(30.5, -47.3, 5000);
     //run full intake
     //retract matchloader
+
+    //head towards parking space and park
     chassis.moveToPoint(37.8, -47.4, 5000);
     chassis.turnToHeading(0, 5000);
     chassis.moveToPoint(37.8, 0, 5000);
