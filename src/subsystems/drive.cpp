@@ -2,8 +2,6 @@
 #include "lemlib/api.hpp"
 
 namespace drive {
-    pros::Controller controller(pros::E_CONTROLLER_MASTER);
-
     //drivetrain motors
     pros::MotorGroup drive ({-12, -3, -2, 20, 9, 10}, pros::MotorGearset::blue);
     pros::MotorGroup left_motors ({-12, -3, -2}, pros::MotorGearset::blue);

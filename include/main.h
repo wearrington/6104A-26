@@ -81,3 +81,4 @@ void opcontrol(void);
 #endif  // _PROS_MAIN_H_
 
 extern lemlib::Chassis chassis;
+extern pros::Controller controller;

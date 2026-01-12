@@ -3,6 +3,8 @@
 #include "autos.hpp"
 #include "subsystems/drive.hpp"
 
+pros::Controller controller(pros::E_CONTROLLER_MASTER);
+
 /**
  * A callback function for LLEMU's center button.
  *
