@@ -3,22 +3,6 @@
 #include "autos.hpp"
 #include "subsystems/drive.hpp"
 
-// drivetrain settings
-lemlib::Drivetrain drivetrain(&drive::left_motors, // left motor group
-                              &drive::right_motors, // right motor group
-                              11.44, // 11.44 inch track width
-                              lemlib::Omniwheel::NEW_325, // using new 3.25" omnis
-                              450, // drivetrain rpm is 450
-                              2 // horizontal drift, placeholder value
-);
-
-// create the chassis
-lemlib::Chassis chassis(drivetrain, // drivetrain settings
-                        lateral_controller, // lateral PID settings
-                        angular_controller, // angular PID settings
-						drive::sensors // odometry sensors
-);
-
 /**
  * A callback function for LLEMU's center button.
  *
