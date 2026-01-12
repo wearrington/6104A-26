@@ -2,6 +2,7 @@
 #include "lemlib/api.hpp" // IWYU pragma: keep
 #include "autos.hpp"
 #include "subsystems/drive.hpp"
+#include "subsystems/intake.hpp"
 #include "subsystems/match_loader.hpp"
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
@@ -90,6 +91,6 @@ void autonomous() {}
  */
 void opcontrol() {
     pros::Task drive(drive::control, TASK_PRIORITY_DEFAULT + 4);
-	pros::Task drive(drive::control, TASK_PRIORITY_DEFAULT + 3);
-	pros::Task drive(match_loader::control, TASK_PRIORITY_DEFAULT + 3);
+	pros::Task intake(intake::control, TASK_PRIORITY_DEFAULT + 3);
+	pros::Task match_loader(match_loader::control, TASK_PRIORITY_DEFAULT + 3);
 }
