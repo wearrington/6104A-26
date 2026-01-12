@@ -89,4 +89,5 @@ void autonomous() {}
  */
 void opcontrol() {
     pros::Task drive(drive::control, TASK_PRIORITY_DEFAULT + 4);
+	pros::Task drive(drive::control, TASK_PRIORITY_DEFAULT + 3);
 }
