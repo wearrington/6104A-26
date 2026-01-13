@@ -4,6 +4,7 @@
 #include "subsystems/drive.hpp"
 #include "subsystems/intake.hpp"
 #include "subsystems/match_loader.hpp"
+#include "subsystems/angel_wing.hpp"
 
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
@@ -93,4 +94,5 @@ void opcontrol() {
     pros::Task drive(drive::control, TASK_PRIORITY_DEFAULT + 4);
 	pros::Task intake(intake::control, TASK_PRIORITY_DEFAULT + 3);
 	pros::Task match_loader(match_loader::control, TASK_PRIORITY_DEFAULT + 3);
+	pros::Task angel_wing(angel_wing::control, TASK_PRIORITY_DEFAULT + 3);
 }
