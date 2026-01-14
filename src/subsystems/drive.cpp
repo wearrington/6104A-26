@@ -1,5 +1,6 @@
 #include "main.h"
 #include "lemlib/api.hpp"
+#include "autos.hpp"
 
 namespace drive {
     //drivetrain motors
@@ -24,18 +25,18 @@ namespace drive {
 
     // drivetrain settings
     lemlib::Drivetrain drivetrain(&left_motors, // left motor group
-                              &right_motors, // right motor group
-                              11.44, // 11.44 inch track width
-                              lemlib::Omniwheel::NEW_325, // using new 3.25" omnis
-                              450, // drivetrain rpm is 450
-                              2 // horizontal drift, placeholder value
+                                  &right_motors, // right motor group
+                                  11.44, // 11.44 inch track width
+                                  lemlib::Omniwheel::NEW_325, // using new 3.25" omnis
+                                  450, // drivetrain rpm is 450
+                                  2 // horizontal drift, placeholder value
     );
 
     // create the chassis
     lemlib::Chassis chassis(drivetrain, // drivetrain settings
-                        lateral_controller, // lateral PID settings
-                        angular_controller, // angular PID settings
-						sensors // odometry sensors
+                            lateral_controller, // lateral PID settings
+                            angular_controller, // angular PID settings
+						    sensors // odometry sensors
     );
 
     void control() {
