@@ -1,6 +1,8 @@
 #include "main.h"
 #include "lemlib/api.hpp"
 #include "subsystems/drive.hpp"
+#include "subsystems/intake.hpp"
+#include "subsystems/match_loader.hpp"
 
 // lateral PID controller
 lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP)
@@ -31,11 +33,13 @@ void full_skills() {
     chassis.setPose(46.5, 11, 0);
     chassis.moveToPoint(46.5, 46.6, 5000);
     chassis.turnToHeading(90, 5000);
-    //drop match loader
+    match_loader::match_loader_output.set_value(true);
     chassis.moveToPoint(58.3, 46.6, 5000);
-    //run lower intake
+    intake::lower_intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::lower_intake.move_voltage(0);
     chassis.moveToPoint(53.5, 46.6, 5000);
-    //retract match loader
+    match_loader::match_loader_output.set_value(false);
 
     //turn towards wall and run along side channel to back right corner
     chassis.turnToHeading(0, 5000);
@@ -48,13 +52,19 @@ void full_skills() {
 
     //score, matchload, and then score again
     chassis.moveToPoint(-30, 46.6, 5000);
-    //run full intake
-    //drop match loader
+    intake::intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::intake.move_voltage(0);
+    match_loader::match_loader_output.set_value(true);
     chassis.moveToPoint(-59, 46.6, 5000);
-    //run lower intake
+    intake::lower_intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::lower_intake.move_voltage(0);
     chassis.moveToPoint(-30, 46.6, 5000);
-    //run full intake
-    //retract match loader
+    intake::intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::intake.move_voltage(0);
+    match_loader::match_loader_output.set_value(false);
     chassis.moveToPoint(-39, 46.6, 5000);
 
     //turn left, head across field, and then turn into match loader
@@ -64,12 +74,16 @@ void full_skills() {
 
     //score, then match load
     chassis.moveToPoint(-30, -47, 5000);
-    //run full intake
-    //drop match loader
+    intake::intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::intake.move_voltage(0);
+    match_loader::match_loader_output.set_value(true);
     chassis.moveToPoint(-59, -47, 5000);
-    //run lower intake
+    intake::lower_intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::lower_intake.move_voltage(0);
     chassis.moveToPoint(-53, -47, 5000);
-    //retract match loader
+    match_loader::match_loader_output.set_value(false);
 
     //head along left side channel to front left match loader
     chassis.turnToHeading(180, 5000);
@@ -82,13 +96,19 @@ void full_skills() {
 
     //score, matchload, and then score again
     chassis.moveToPoint(30.5, -47.4, 5000);
-    //run full intake
-    //drop matchloader
+    intake::intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::intake.move_voltage(0);
+    match_loader::match_loader_output.set_value(true);
     chassis.moveToPoint(58.3, -47.4, 5000);
-    //run lower intake
+    intake::lower_intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::lower_intake.move_voltage(0);
     chassis.moveToPoint(30.5, -47.3, 5000);
-    //run full intake
-    //retract matchloader
+    intake::intake.move_voltage(12000);
+    pros::delay(2000);
+    intake::intake.move_voltage(0);
+    match_loader::match_loader_output.set_value(false);
 
     //head towards parking space and park
     chassis.moveToPoint(37.8, -47.4, 5000);
