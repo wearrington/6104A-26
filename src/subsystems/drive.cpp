@@ -4,9 +4,9 @@
 
 namespace drive {
     //drivetrain motors
-    pros::MotorGroup drive ({-12, -3, -2, 20, 9, 10}, pros::MotorGearset::blue);
-    pros::MotorGroup left_motors ({-12, -3, -2}, pros::MotorGearset::blue);
-    pros::MotorGroup right_motors({20, 9, 10}, pros::MotorGearset::blue);
+    pros::MotorGroup drive ({-12, -3, -2, 20, 9, 10}, pros::MotorGearset::blue); //done back to front, all left then all right
+    pros::MotorGroup left_motors ({-13, -2, -1}, pros::MotorGearset::blue);
+    pros::MotorGroup right_motors({18, 9, 10}, pros::MotorGearset::blue);
 
     //odometry sensors
     pros::Rotation vertical_encoder({8});

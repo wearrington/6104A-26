@@ -1,8 +1,8 @@
 #include "main.h"
 
 namespace intake {
-    pros::MotorGroup intake({10, -13});
-    pros::Motor lower_intake(10);
+    pros::MotorGroup intake({20, -13});
+    pros::Motor lower_intake(20);
     pros::Motor upper_intake(-13);
 
     void control() {
