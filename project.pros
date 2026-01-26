@@ -635,7 +635,8 @@
       }
     },
     "upload_options": {
-      "description": "For drive practice & testing"
+      "description": "For drive practice & testing",
+      "slot": 1
     },
     "use_early_access": false
   }

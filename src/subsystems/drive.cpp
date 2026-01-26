@@ -9,11 +9,11 @@ namespace drive {
     pros::MotorGroup right_motors({18, 9, 10}, pros::MotorGearset::blue);
 
     //odometry sensors
-    pros::Rotation vertical_encoder({8});
+    pros::Rotation vertical_encoder({20}); // formerly on port 8 
     lemlib::TrackingWheel vertical_tracking_wheel(&vertical_encoder, lemlib::Omniwheel::NEW_2, -5.75);
     pros::Rotation horizontal_encoder({11});
     lemlib::TrackingWheel horizontal_tracking_wheel(&horizontal_encoder, lemlib::Omniwheel::NEW_2, -5.75);
-    pros::IMU imu({4});
+    pros::IMU imu({11});
 
     // odometry settings
     lemlib::OdomSensors sensors(&vertical_tracking_wheel, // vertical tracking wheel 1, set to null

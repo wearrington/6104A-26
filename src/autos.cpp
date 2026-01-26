@@ -5,9 +5,9 @@
 #include "subsystems/match_loader.hpp"
 
 // lateral PID controller
-lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP)
+lemlib::ControllerSettings lateral_controller(19, // proportional gain (kP)
                                               0, // integral gain (kI)
-                                              3, // derivative gain (kD)
+                                              95, // derivative gain (kD)
                                               3, // anti windup
                                               1, // small error range, in inches
                                               100, // small error range timeout, in milliseconds
@@ -21,9 +21,9 @@ lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
                                               0, // integral gain (kI)
                                               10, // derivative gain (kD)
                                               3, // anti windup
-                                              1, // small error range, in degrees
+                                              1, // small error range, in inches
                                               100, // small error range timeout, in milliseconds
-                                              3, // large error range, in degrees
+                                              3, // large error range, in inches
                                               500, // large error range timeout, in milliseconds
                                               0 // maximum acceleration (slew)
 );
@@ -116,4 +116,10 @@ void full_skills() {
     chassis.moveToPoint(37.8, 0, 5000);
     chassis.turnToHeading(90, 5000);
     chassis.moveToPoint(100, 0, 5000); //ghost point to maintain speed, real point is (61.5, 0)
+}
+
+void odom_tune() {
+drive::chassis.setPose(0, 0, 0);
+    // turn to face heading 90 with a very long timeout
+drive::chassis.moveToPoint(0, 12, 100000);
 }

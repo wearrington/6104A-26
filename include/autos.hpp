@@ -4,4 +4,6 @@
 extern lemlib::ControllerSettings lateral_controller;
 extern lemlib::ControllerSettings angular_controller;
 
+
 void full_skills();
+void odom_tune();

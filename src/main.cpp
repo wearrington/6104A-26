@@ -75,7 +75,12 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+  odom_tune();
+      // set position to x:0, y:0, heading:0
+    // turn to face heading 90 with a very long timeout
+   
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -91,6 +96,7 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+  odom_tune();
     pros::Task drive(drive::control, TASK_PRIORITY_DEFAULT + 4);
 	pros::Task intake(intake::control, TASK_PRIORITY_DEFAULT + 3);
 	pros::Task match_loader(match_loader::control, TASK_PRIORITY_DEFAULT + 3);
